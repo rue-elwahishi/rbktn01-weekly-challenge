@@ -43,7 +43,7 @@ function daBears() {
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["mamaBear", "babyBear"];
+var fairyTale1 = ["mamaBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
@@ -63,7 +63,7 @@ var fairyTale4 = ["goldilocks"];
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 
 // *************
@@ -88,9 +88,7 @@ function vehicle(){
 }
 
 vehicle.prototype.drive = function(){
-     var driven = this.gasRemaining;
-	driven = driven - 25;
-	return driven;
+      this.gasRemaining -= 25;
 } 
 
 // -----------------------------------------------------------------------------
@@ -111,12 +109,15 @@ vehicle.prototype.drive = function(){
 // and should neither modify them nor break when encountering them.
 
 
-String.prototype.grammarPolice = function(value) {
-			if(typeof value !== 'string' ){
-                return;
-         	}
-         return value[0].toUpperCase() + value.slice(1) + value.toLowerCase();
-         
+String.prototype.grammarPolice = function() {
+	          var concatString = ''
+	          var arr = this.split(' ')
+               for(var i = 0; i < arr.length; i++){
+               concatString += arr[i].charAt(0).toUpperCase() + arr[i].toLowerCase().slice(1) + ' '
+
+               }
+
+          return concatString 
 };
 
 // CODE HERE...
@@ -128,7 +129,7 @@ String.prototype.grammarPolice = function(value) {
 // *************
 
 // Write a function called valueType that has two parameters. It accepts two
-// arguments. Your function will needto compare the passed-in values 
+// arguments. Your function will need to compare the passed-in values 
 // and return a string based on that comparison, as follows:
 
 // If the arguments are of the same type and have the same value, return "Exactly the same"
@@ -136,8 +137,18 @@ String.prototype.grammarPolice = function(value) {
 // If the arguments have the same value but are of different types, return "Same value, different types"
 
 // In all other cases, return "Different values"
+      function valueType(a, b) { 
+           if(a === b){
+           	return 'Exactly the same'
+           }
+             if (a == b){
+           	return 'same value, different types'
+           }
+         
+           	return "Different values"
+           
+      }
 
-// CODE HERE...
 
 // *************
 // * PROBLEM 5 *
@@ -164,7 +175,7 @@ function large() {
     return 'My name is ' + this.name + ' and I am very heavy!'
 }
   // CODE HERE...
-
+var boundToElephant = large.bind(elephant);
 // *************
 // * PROBLEM 6 *
 // *************
@@ -175,8 +186,10 @@ function large() {
 // Use explicit binding to give capacity the context of crew
 // and return the bound function.
 
-// CODE HERE...
+ function deathStar(func, obj){
+ 	return func.bind(obj)
 
+ }
 
 // *************
 // * PROBLEM 7 *
@@ -189,4 +202,11 @@ function large() {
 // The closure function will take in a parameter: liabilities (Number)
 // The closure function will return the combined value of assets and liabilities.
 
-// CODE HERE...
+ function accountingOffice(assets){
+
+   
+     return function(liabilities){
+       return assets + liabilities
+     }
+
+ }
