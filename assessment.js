@@ -43,22 +43,22 @@ function daBears() {
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["mamaBear", "babyBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = ["mamaBear", "babyBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["goldilocks"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
@@ -83,9 +83,15 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 // CODE HERE...
 
+function vehicle(){
+	this.gasRemaining = 100;
+}
 
-
-
+vehicle.prototype.drive = function(){
+     var driven = this.gasRemaining;
+	driven = driven - 25;
+	return driven;
+} 
 
 // -----------------------------------------------------------------------------
 
@@ -105,7 +111,13 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // and should neither modify them nor break when encountering them.
 
 
-
+String.prototype.grammarPolice = function(value) {
+			if(typeof value !== 'string' ){
+                return;
+         	}
+         return value[0].toUpperCase() + value.slice(1) + value.toLowerCase();
+         
+};
 
 // CODE HERE...
 
